@@ -1,19 +1,85 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <title>index.html</title>
-	
-    <meta name="keywords" content="keyword1,keyword2,keyword3">
-    <meta name="description" content="this is my page">
-    <meta name="content-type" content="text/html; charset=UTF-8">
-    
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <head> 
+    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>页面</title>
+
+	<!-- 引入css样式 -->
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<!-- 引入jquery -->
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   
   <body>
+        <!-- 顶部 -->
+        <div class="top"></div>
+        <!-- 头部 -->
+        <div class="back">
+	        <div class="header">
+	            <!-- 头部图片 -->
+	            <div class="header-image">
+	                <img src="/Homework/images/headerImg.png">
+	            </div>
+	            <!-- 选项栏 -->
+	            <div class="options">
+	                <ul>
+	                    <li>
+	                        <img src="/Homework/images/openDoor.png">
+                            <span><a href="#">开门</a></span>	                    
+	                    </li>
+	                    <li>
+	                        <img src="/Homework/images/pay.png">
+                            <span><a href="#">缴费</a></span>	                    
+	                    </li>
+	                    <li>
+	                        <img src="/Homework/images/repairs.png">
+                            <span><a href="#">保修</a>	</span>                    
+	                    </li>
+	                    <li>
+	                        <img src="/Homework/images/complain.png">
+                            <span><a href="#">投诉</a></span>                         
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+        </div>
+        <!-- 分隔条 -->
+        <div class="divide"></div>
+        <!-- 内容区 -->
+        <div class="content">
+            <div class="title"><h3>热门资讯</h3></div>
+            <div class="news">
+                <ul id="newList">
+                    <!-- <li>
+                        <div class="newtext">
+                            <h3>标题</h3>
+                            <span class="timeText">2小时发布</span> 
+                            <span class="statusText">已读</span>
+                        </div>
+                        <img class="newimg">
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+            
         <script type="text/javascript">
-             window.location.href="index.jsp";
+	        $(function(){
+	        	$.ajax({
+	                type:"GET",
+	                url:"/Homework/data/data.json",
+	                dataType:"json",
+	                success:function(data){
+	                    $.each(data.result,function(i,n){
+	                    	$("#newList").append( "<li> <div class='newtext'><h3>"+n.title+"</h3><span class='timeText'>"+n.time+"</span> <span class='statusText'>"+n.status_DISPLAY+"</span></div><img class='newimg' src='"+n.img+"'></li>");
+	                    });
+	                }
+	            });
+	        });    
         </script>
   </body>
 </html>
