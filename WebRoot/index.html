@@ -30,19 +30,19 @@
 	            <div class="options">
 	                <ul>
 	                    <li>
-	                        <img src="/Homework/images/openDoor.png">
+	                        <img src="/Homework/WebRoot/images/openDoor.png">
                             <span><a href="#">开门</a></span>	                    
 	                    </li>
 	                    <li>
-	                        <img src="/Homework/images/pay.png">
+	                        <img src="/Homework/WebRoot/images/pay.png">
                             <span><a href="#">缴费</a></span>	                    
 	                    </li>
 	                    <li>
-	                        <img src="/Homework/images/repairs.png">
+	                        <img src="/Homework/WebRoot/images/repairs.png">
                             <span><a href="#">保修</a>	</span>                    
 	                    </li>
 	                    <li>
-	                        <img src="/Homework/images/complain.png">
+	                        <img src="/Homework/WebRoot/images/complain.png">
                             <span><a href="#">投诉</a></span>                         
 	                    </li>
 	                </ul>
@@ -72,7 +72,7 @@
 	        $(function(){
 	        	$.ajax({
 	                type:"GET",
-	                url:"/Homework/data/data.json",
+	                url:"/Homework/WebRoot/data/data.json",
 	                dataType:"json",
 	                success:function(data){
 	                    $.each(data.result,function(i,n){
